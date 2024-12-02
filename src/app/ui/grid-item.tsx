@@ -18,7 +18,7 @@ export default function GridItem ({pokemon, gen, addToMyList, removeFromList, li
 
   return (
     <>
-    <div key={pokemon.id} className='flex flex-col justify-between items-center bg-box rounded-lg p-2 shadow-xl text-background hover:cursor-pointer'>
+    <div key={pokemon.id} className='flex flex-col justify-between items-center bg-box rounded-lg p-2 shadow-xl text-background'>
       <h1 className='font-bold text-xl'>{capitalize(pokemon.name)}</h1>
       {showInfo ?  (
         <div className='flex flex-col items-center justify-center text-center sm:h-[150px] font-bold text-sm sm:text-base'>
