@@ -1,44 +1,58 @@
-import { Pokemon, pokemonImage } from '../lib/definitions';
-import { capitalize } from 'lodash';
-import Image from 'next/image';
-import { HiOutlineHeart, HiHeart, HiOutlineXCircle } from 'react-icons/hi2';
+import { Pokemon, AllGens } from '../lib/definitions';
+import GridItem from './grid-item';
 
 interface PokemonListProps {
-  selection: Pokemon[],
+  data: AllGens,
+  myList: Pokemon[],
   gen: string,
-  addToMyList?: (pokemon: Pokemon) => void,
-  removeFromList?: (pokemon: Pokemon) => void,
+  searchTerm: string,
+  addToMyList: (pokemon: Pokemon) => void,
+  removeFromList: (pokemon: Pokemon) => void,
   listCheck: (pokemon: Pokemon) => boolean;
 }
 
-export default function PokemonList({selection, gen, addToMyList, removeFromList, listCheck}: PokemonListProps) {
+export default function PokemonList({data, myList, gen, searchTerm, addToMyList, removeFromList, listCheck}: PokemonListProps) {
+  const key = gen === 'first' ? 'gen1' : gen === 'second' ? 'gen2' : 'gen3';
+  const myListOrData = gen === 'list' ? myList : data[key];
 
+  const searchedList = myListOrData.filter((pokemon) => {
+    return pokemon.name.includes(searchTerm.toLowerCase())
+  });
 
-  if (gen === 'list' && selection.length === 0) {
-    console.log('attaboy');
+  if (searchTerm && searchedList.length === 0) {
     return (
-      <div>Your list is empty, go add some Pokemon!</div>
+      <div className='mt-[50vh] self-center text-4xl text-center text-circle2 font-bold'>No matching results, try another search.</div>
+    )
+  }
+
+  if (gen === 'list' && myList.length === 0) {
+    return (
+      <div className='mt-[50vh] self-center text-4xl text-center text-circle2 font-bold'>Your list is empty, go add some Pokémon!</div>
     )
   }
 
   return (
-    <>
-    <div className='grid grid-cols-2 sm:grid-cols-5 gap-5 sm:gap-32 content-center'>
-        {selection.map((pokemon) => (
-          <div key={pokemon.id} className='flex flex-col justify-center items-center bg-slate-500 rounded-lg p-2'>
-            <h2>{capitalize(pokemon.name)}</h2>
-            <Image src={pokemonImage + pokemon.id + '.png'} alt={pokemon.name} height={150} width={150} />
-            <div onClick={() => gen === 'list' || listCheck(pokemon) ? removeFromList?.(pokemon) : addToMyList?.(pokemon)}
-              className='hover:cursor-pointer'> 
-              {gen === 'list' ? (
-                <HiOutlineXCircle size={25} />
-              ) : listCheck(pokemon) ? (
-                <HiHeart size={25} />
-              ) : (
-                <HiOutlineHeart size={25} />
-              )}
-            </div>
-          </div>
+    <>  
+    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 content-center px-8 mt-[270px]'>
+        {searchTerm && searchedList.length > 0 ? searchedList.map((pokemon) => (
+          <GridItem 
+            key={pokemon.id}
+            pokemon={pokemon} 
+            gen={gen}
+            addToMyList={addToMyList}
+            removeFromList={removeFromList}
+            listCheck={listCheck}
+          />
+        )) :
+        myListOrData.map((pokemon) => (
+          <GridItem 
+            key={pokemon.id}
+            pokemon={pokemon} 
+            gen={gen}
+            addToMyList={addToMyList}
+            removeFromList={removeFromList}
+            listCheck={listCheck}
+          />
         ))}
       </div>
     </>

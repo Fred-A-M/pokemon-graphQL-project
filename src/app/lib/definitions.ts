@@ -1,14 +1,21 @@
 export interface Pokemon {
-  __typename: string,
-  name: string,
-  id: number
+  __typename: string;
+  name: string;
+  id: number;
   pokemon_v2_pokemonhabitat: Habitat;
+  pokemon_v2_pokemons: Mass[]; 
 }
 
 interface Habitat {
-  __typename: string,
-  name: string,
+  __typename: string;
+  name: string;
 }
+
+interface Mass {
+  weight: number;
+  height: number;
+}
+
 
 export interface AllGens {
   gen1: Pokemon[];

@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokémon Explorer App
+
+<p align="center">
+  <img src="/public/PELogo.png" width="300">
+</p>
+
+Pokémon Explorer is a web application that allows you to explore, search, and save your favorite Pokémon. You can browse Pokémon by different generations, toggle detailed information on and off, and maintain a personalized list of your favorites.
+
+## Features
+
+- **Browse Pokémon by Generation**: Explore Pokémon from Generation I, II, and III.
+- **Search Pokémon**: Find specific Pokémon by name using the search bar.
+- **Toggle Information**: Switch between viewing Pokémon details or just their images.
+- **Save Favorite Pokémon**: Create and manage a list of your favorite Pokémon.
+
+## Built With
+
+- **TypeScript**: For type safety.
+- **Next.js**: A React framework for server-side rendering and static site generation.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 
 ## Getting Started
 
-First, run the development server:
+Follow these instructions to get a copy of the project up and running on your local machine.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Node.js**: Make sure you have Node.js installed on your system.
+- **npm**: Comes with Node.js, or you can use an alternative package manager like `yarn`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
+   ```bash
+   git clone <https://github.com/Fred-A-M/pokemon-graphQL-project>
 
-## Learn More
+2. Navigate to the project directory:
+  ```bash
+  cd pokemon-explorer
 
-To learn more about Next.js, take a look at the following resources:
+3. Install dependencies:
+  ```bash
+  npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Start development server:
+  ```bash
+  npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Open browser and navigate to:
+  http://localhost:3000
 
-## Deploy on Vercel
+### Usage
+- **Browse by Generation**: Use the generation tabs to filter Pokémon by Generation I, II, or III.
+- **Search Pokémon**: Use the search bar at the top to find Pokémon by name.
+- **Toggle Info**: Click on a Pokémon to view its details, including its habitat, weight, and height.
+- **Save Favorites**: Add Pokémon to your favorites list and view your collection in the "My Pokémon" tab.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development
+### Technologies Used
+- **Framework**: Next.js
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **GraphQL API**: Pokémon GraphQL API (https://pokeapi.co/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes.

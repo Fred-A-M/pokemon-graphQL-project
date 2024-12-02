@@ -11,6 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        nav: '#adbbda',
+        box: '#8697c4',
+        circle: '#7091e6',
+        circle2: '#3d52a0',
       },
     },
   },
