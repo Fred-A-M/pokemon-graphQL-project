@@ -14,6 +14,7 @@ export default {
         nav: '#adbbda',
         box: '#8697c4',
         circle: '#7091e6',
+        circle1: '#84a2f1',
         circle2: '#3d52a0',
       },
     },

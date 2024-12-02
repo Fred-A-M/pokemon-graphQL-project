@@ -24,7 +24,7 @@ export default function NavBar ({changeGen, gen, searchFor, searchTerm}: NavBarP
           />
           <button 
             onClick={() => changeGen('list')}
-            className={`${gen === 'list' ? 'bg-circle2' : 'bg-circle'} rounded-md w-24 text-background py-3 font-bold`}
+            className={`${gen === 'list' ? 'bg-circle2' : 'bg-circle'} ${gen !== 'list' && 'hover:bg-circle1'} transition-colors duration-200 rounded-md w-24 text-background py-3 font-bold `}
           >
             My list
           </button>
