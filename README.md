@@ -10,8 +10,9 @@ Pokémon Explorer is a web application that allows you to explore, search, and s
 
 - **Browse Pokémon by Generation**: Explore Pokémon from Generation I, II, and III.
 - **Search Pokémon**: Find specific Pokémon by name using the search bar.
-- **Toggle Information**: Switch between viewing Pokémon details or just their images.
+- **Toggle Information**: Switch between viewing Pokémon details or images.
 - **Save Favorite Pokémon**: Create and manage a list of your favorite Pokémon.
+- **Compare**: Save Pokemon from any generation in your favourites, then compare their details side-by-side.
 
 ## Built With
 
