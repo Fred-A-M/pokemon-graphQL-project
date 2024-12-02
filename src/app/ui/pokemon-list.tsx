@@ -33,7 +33,7 @@ export default function PokemonList({data, myList, gen, searchTerm, addToMyList,
 
   return (
     <>  
-    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 content-center px-8 mt-[270px]'>
+    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 content-center px-3 sm:px-8 mt-[270px]'>
         {searchTerm && searchedList.length > 0 ? searchedList.map((pokemon) => (
           <GridItem 
             key={pokemon.id}
