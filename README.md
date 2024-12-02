@@ -33,21 +33,26 @@ Follow these instructions to get a copy of the project up and running on your lo
 1. Clone the repository:
    ```bash
    git clone <https://github.com/Fred-A-M/pokemon-graphQL-project>
+   ```
 
 2. Navigate to the project directory:
   ```bash
   cd pokemon-explorer
+  ```
 
 3. Install dependencies:
   ```bash
   npm install
+  ```
 
 4. Start development server:
   ```bash
   npm run dev
+  ```
 
 5. Open browser and navigate to:
   http://localhost:3000
+ 
 
 ### Usage
 - **Browse by Generation**: Use the generation tabs to filter Pokémon by Generation I, II, or III.
