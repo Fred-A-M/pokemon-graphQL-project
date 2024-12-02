@@ -43,17 +43,20 @@ export default function GridItem ({pokemon, gen, addToMyList, removeFromList, li
         {gen === 'list' ? (
           <HiOutlineXCircle
             size={25} 
-            onClick={() => removeFromList(pokemon)} 
+            onClick={() => removeFromList(pokemon)}
+            onMouseDown={(e) => e.preventDefault()}  
           />
           ) : listCheck(pokemon) ? (
           <HiHeart 
             size={25} 
-            onClick={() => removeFromList(pokemon)} 
+            onClick={() => removeFromList(pokemon)}
+            onMouseDown={(e) => e.preventDefault()} 
           />
           ) : (
           <HiOutlineHeart 
             size={25} 
             onClick={() => addToMyList(pokemon)}
+            onMouseDown={(e) => e.preventDefault()} 
           />
         )}
       </div>
