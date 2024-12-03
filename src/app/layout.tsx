@@ -8,6 +8,16 @@ export const metadata: Metadata = {
   icons: {
     icon: "/pokeball.png",
   },
+  openGraph: {
+    title: "Pokémon Explorer", // Title for the preview
+    description: "Save your favourite Pokémon", // Description for the preview
+    images: [
+      {
+        url: "/PELogo.png", // Path to your desired preview image
+        alt: "Pokémon Explorer logo", // Alt text for accessibility
+      },
+    ],
+  },
 };
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode;}>) {
