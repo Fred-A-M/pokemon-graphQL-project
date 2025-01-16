@@ -3,6 +3,7 @@ import { Pokemon, pokemonImage } from '../lib/definitions';
 import { HiOutlineHeart, HiHeart, HiOutlineXCircle, HiInformationCircle } from 'react-icons/hi2';
 import { capitalize } from 'lodash';
 import { useState } from 'react';
+// import Link from 'next/link';
 
 
 interface GridItemProps {
@@ -27,12 +28,14 @@ export default function GridItem ({pokemon, gen, addToMyList, removeFromList, li
           <div>Weight: {pokemon.pokemon_v2_pokemons[0].weight}</div>
           <div>Height: {pokemon.pokemon_v2_pokemons[0].height}</div>
         </div>) : (
+        // <Link href={`/pokemon-page/${pokemon.id}`}>
         <Image 
           src={pokemonImage + pokemon.id + '.png'} 
           alt={pokemon.name} 
           height={150} 
           width={150}
         />
+        // </Link>
       )}
       <div className='hover:cursor-pointer flex justify-between w-full'> 
         <HiInformationCircle 

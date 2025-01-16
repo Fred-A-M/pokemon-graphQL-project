@@ -2,6 +2,7 @@ import {client, GET_POKEMON} from '@/app/lib/apollo-client';
 import Explorer from './ui/explorer';
 
 export default async function Home() {
+
   let data;
 
   try {
