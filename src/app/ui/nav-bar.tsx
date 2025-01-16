@@ -7,9 +7,10 @@ interface NavBarProps {
   gen: string
   searchFor: (term: string) => void,
   searchTerm: string,
+  changeState: (newState : string) => void
 }
 
-export default function NavBar ({changeGen, gen, searchFor, searchTerm}: NavBarProps) {
+export default function NavBar ({changeGen, gen, searchFor, searchTerm, changeState}: NavBarProps) {
 
   return (
     <>
@@ -21,6 +22,8 @@ export default function NavBar ({changeGen, gen, searchFor, searchTerm}: NavBarP
             alt='logo' 
             height={150} 
             width={150}
+            onClick={() => changeState('start')}
+            className='hover:cursor-pointer'
           />
           <button 
             onClick={() => changeGen('list')}

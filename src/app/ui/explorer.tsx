@@ -48,6 +48,7 @@ export default function Explorer({data}: GenerationsProps) {
         gen={gen}
         searchFor={searchFor}
         searchTerm={searchTerm}
+        changeState={changeState}
       />
       <PokemonList 
         data={data} 
