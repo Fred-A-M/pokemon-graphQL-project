@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
-
 
 export const metadata: Metadata = {
   title: "Pokémon Explorer",
@@ -20,12 +20,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({children}: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-      <html lang="en">
-        <body className={`antialiased`}>
-         {children}
-        </body>
-      </html>
+    <html lang="en">
+      <body className={`antialiased`}>
+        {children}
+        <Toaster position="top-center" />
+      </body>
+    </html>
   );
 }

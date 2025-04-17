@@ -1,21 +1,20 @@
-import Image from 'next/image'
-import { useState, useEffect } from 'react';
+import Image from "next/image";
+import { useState, useEffect } from "react";
 
 interface HeroPageProps {
-  changeState: (newState: string) => void
+  changeState: (newState: string) => void;
 }
 
-export default function HeroPage ({changeState}: HeroPageProps) {
+export default function HeroPage({ changeState }: HeroPageProps) {
   const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = '/PELogo.png';
+    img.src = "/PELogo.png";
     img.onload = () => {
       setIsImageLoaded(true);
     };
   }, []);
-
 
   return (
     <>
@@ -40,7 +39,7 @@ export default function HeroPage ({changeState}: HeroPageProps) {
           <div className="flex items-center gap-9 transition duration-300">
             <div>
               <button
-                onClick={() => changeState('next')}
+                onClick={() => changeState("next")}
                 className="bg-circle hover:bg-circle1 transition-colors duration-200 rounded-md w-24 text-background py-3 font-bold"
                 type="submit"
               >
@@ -51,5 +50,5 @@ export default function HeroPage ({changeState}: HeroPageProps) {
         </div>
       )}
     </>
-  )
+  );
 }

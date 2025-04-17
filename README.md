@@ -32,41 +32,48 @@ Follow these instructions to get a copy of the project up and running on your lo
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone <https://github.com/Fred-A-M/pokemon-graphQL-project>
    ```
 
 2. Navigate to the project directory:
-  ```bash
-  cd pokemon-explorer
-  ```
+
+```bash
+cd pokemon-explorer
+```
 
 3. Install dependencies:
-  ```bash
-  npm install
-  ```
+
+```bash
+npm install
+```
 
 4. Start development server:
-  ```bash
-  npm run dev
-  ```
+
+```bash
+npm run dev
+```
 
 5. Open browser and navigate to:
-  http://localhost:3000
- 
+   http://localhost:3000
 
 ### Usage
+
 - **Browse by Generation**: Use the generation tabs to filter Pokémon by Generation I, II, or III.
 - **Search Pokémon**: Use the search bar at the top to find Pokémon by name.
 - **Toggle Info**: Click on a Pokémon to view its details, including its habitat, weight, and height.
 - **Save Favorites**: Add Pokémon to your favorites list and view your collection in the "My Pokémon" tab.
 
 ## Development
+
 ### Technologies Used
+
 - **Framework**: Next.js
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **GraphQL API**: Pokémon GraphQL API (https://pokeapi.co/)
 
 ## Contributing
+
 Contributions are welcome! Please fork the repository and create a pull request with your changes.

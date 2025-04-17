@@ -1,5 +1,5 @@
-import {client, GET_POKEMON} from '@/app/lib/apollo-client';
-import Explorer from './ui/explorer';
+import { client, GET_POKEMON } from "@/app/lib/apollo-client";
+import Explorer from "./ui/explorer";
 
 export default async function Home() {
   let data;
@@ -13,7 +13,9 @@ export default async function Home() {
     console.error("Error fetching Pokémon data:", error);
     return (
       <div className="flex items-center justify-center h-screen">
-        <p className="text-circle2 text-xl font-bold">Error loading Pokémon data. Please try again later.</p>
+        <p className="text-circle2 text-xl font-bold">
+          Error loading Pokémon data. Please try again later.
+        </p>
       </div>
     );
   }
@@ -28,9 +30,9 @@ export default async function Home() {
 
   return (
     <>
-    <div className='flex flex-col'>
-      <Explorer data={data} />
-    </div>
+      <div className="flex flex-col">
+        <Explorer data={data} />
+      </div>
     </>
   );
 }
