@@ -1,11 +1,9 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
-interface HeroPageProps {
-  changeState: (newState: string) => void;
-}
-
-export default function HeroPage({ changeState }: HeroPageProps) {
+export default function HeroPage() {
   const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
 
   useEffect(() => {
@@ -38,13 +36,14 @@ export default function HeroPage({ changeState }: HeroPageProps) {
           </div>
           <div className="flex items-center gap-9 transition duration-300">
             <div>
-              <button
-                onClick={() => changeState("next")}
-                className="bg-circle hover:bg-circle1 transition-colors duration-200 rounded-md w-24 text-background py-3 font-bold"
-                type="submit"
-              >
-                Start
-              </button>
+              <Link href="/explorer">
+                <button
+                  className="bg-circle hover:bg-circle1 transition-colors duration-200 rounded-md w-24 text-background py-3 font-bold"
+                  type="submit"
+                >
+                  Start
+                </button>
+              </Link>
             </div>
           </div>
         </div>

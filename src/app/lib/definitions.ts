@@ -14,6 +14,7 @@ export interface PokemonDetails {
 }
 
 export interface PokemonStat {
+  __typename: string;
   base_stat: number;
   pokemon_v2_stat: {
     name: string;

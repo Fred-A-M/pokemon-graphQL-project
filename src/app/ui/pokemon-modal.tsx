@@ -5,6 +5,7 @@ import { capitalize } from "lodash";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 import { HiOutlineHeart, HiHeart } from "react-icons/hi2";
+import { motion, useAnimation } from "framer-motion";
 import { toast } from "react-hot-toast";
 
 interface PokemonModalProps {
@@ -80,6 +81,7 @@ export default function PokemonModal({
   removeFromList,
   listCheck,
 }: PokemonModalProps) {
+  const controls = useAnimation();
   useEffect(() => {
     // Close on escape key
     const handleEsc = (e: KeyboardEvent) => {
@@ -94,14 +96,24 @@ export default function PokemonModal({
     };
   }, [onClose]);
 
+  const handleClick = () => {
+    controls.start({
+      rotateZ: [0, 10, -7, 5, -3, 0],
+      transition: {
+        duration: 0.4,
+        ease: "easeInOut",
+      },
+    });
+  };
+
   return (
     <div
-      className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 md:p-4 p-10"
+      className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 md:p-4 p-8"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-box text-background rounded-lg shadow-xl p-10 max-w-4xl mx-auto relative max-h-[90vh] overflow-y-auto">
+      <div className="bg-box text-background rounded-lg shadow-xl md:p-10 p-4 max-w-4xl mx-auto relative max-h-[90vh] overflow-y-auto">
         <div className="flex items-center md:justify-between justify-center gap-6 text-3xl font-bold mb-6 text-left w-full pl-5">
           <h1>{capitalize(pokemon.name)}</h1>
           <div className="flex col-span-1 md:col-span-2 items-center justify-end gap-6">
@@ -128,7 +140,11 @@ export default function PokemonModal({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="flex items-center justify-center ">
+          <motion.div
+            className="flex items-center justify-center "
+            onClick={handleClick}
+            animate={controls}
+          >
             <Image
               src={`${pokemonImage}${pokemon.id}.png`}
               alt={pokemon.name || "Pokemon"}
@@ -136,18 +152,18 @@ export default function PokemonModal({
               height={300}
               className="object-contain"
             />
-          </div>
+          </motion.div>
           <div className="bg-circle1/20 p-5 rounded-lg">
-            <h3 className="font-bold text-2xl mb-4">Battle Stats</h3>
+            <h3 className="font-bold md:text-2xl text-xl mb-4">Battle Stats</h3>
             <div className="w-full">
               <PokemonChart stats={pokemon.pokemon_v2_pokemons[0].pokemon_v2_pokemonstats} />
             </div>
           </div>
 
           <div className="bg-circle1/20 p-5 rounded-lg w-full">
-            <h2 className="font-bold text-2xl mb-4">Info</h2>
+            <h2 className="font-bold md:text-2xl text-xl mb-4">Info</h2>
 
-            <div className="grid grid-cols-2 gap-4 text-lg">
+            <div className="grid grid-cols-2 gap-4 md:text-lg text-md">
               <div>
                 <p className="mb-2">
                   <span className="font-semibold">ID:</span> {pokemon.id}
@@ -171,8 +187,8 @@ export default function PokemonModal({
           </div>
 
           <div className="bg-circle2/20 p-5 rounded-lg self-end">
-            <h2 className="font-bold text-2xl mb-4">Bio</h2>
-            <p className="mb-2 text-lg">
+            <h2 className="font-bold md:text-2xl text-xl mb-4">Bio</h2>
+            <p className="mb-2 md:text-lg text-md">
               {capitalize(pokemon.name)} is a fascinating Pokemon with unique characteristics. It
               lives in {pokemon.pokemon_v2_pokemonhabitat.name} habitats and has a distinctive
               appearance.

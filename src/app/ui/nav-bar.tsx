@@ -5,22 +5,16 @@ import { useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { useMotionValueEvent } from "framer-motion";
+import Link from "next/link";
 
 interface NavBarProps {
   changeGen: (generation: string) => void;
   gen: string;
   searchFor: (term: string) => void;
   searchTerm: string;
-  changeState: (newState: string) => void;
 }
 
-export default function NavBar({
-  changeGen,
-  gen,
-  searchFor,
-  searchTerm,
-  changeState,
-}: NavBarProps) {
+export default function NavBar({ changeGen, gen, searchFor, searchTerm }: NavBarProps) {
   const [isVisible, setIsVisible] = useState(true);
   const { scrollY } = useScroll();
   const lastScrollY = useRef(0);
@@ -46,7 +40,7 @@ export default function NavBar({
   return (
     <>
       <motion.div
-        className="flex flex-col items-center w-full fixed z-50"
+        className="flex flex-col items-center w-full fixed top-0 left-0 right-0 z-50"
         // className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md px-5 sm:px-10"
         initial={{ y: 0 }}
         animate={{ y: isVisible ? 0 : -300 }}
@@ -54,14 +48,15 @@ export default function NavBar({
       >
         <div className="flex flex-col pt-3 w-full items-center bg-nav">
           <div className="flex mb-3 justify-between items-center w-[60%] border-b-2 p-1">
-            <Image
-              src="/PELogo.png"
-              alt="logo"
-              height={150}
-              width={150}
-              onClick={() => changeState("start")}
-              className="hover:cursor-pointer"
-            />
+            <Link href="/">
+              <Image
+                src="/PELogo.png"
+                alt="logo"
+                height={150}
+                width={150}
+                className="hover:cursor-pointer"
+              />
+            </Link>
             <button
               onClick={() => changeGen("list")}
               className={`${gen === "list" ? "bg-circle2" : "bg-circle"} ${gen !== "list" && "hover:bg-circle1"} transition-colors duration-200 rounded-md w-24 text-background py-3 font-bold `}
