@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-
+import { motion } from "framer-motion";
 export default function HeroPage() {
   const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
 
@@ -18,13 +18,22 @@ export default function HeroPage() {
     <>
       {!isImageLoaded ? (
         // Loading screen
-        <div className="flex flex-col justify-center items-center h-lvh bg-nav">
-          <p className="text-white text-xl">Loading...</p>
-        </div>
+        <div className="flex justify-center items-center bg-nav animate-spin w-40 h-40 border-l-8 border-r-8 border-circle rounded-full" />
       ) : (
         // Main content
         <div className="flex flex-col justify-center items-center h-lvh gap-9 bg-nav">
-          <div>
+          <motion.div
+            initial={{ rotateY: 0 }}
+            animate={{ rotateY: 360 }}
+            transition={{
+              duration: 2,
+              delay: 1,
+              ease: "circIn",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            style={{ perspective: "1000px" }}
+          >
             <Image
               className="drop-bounce"
               src="/PELogo.png"
@@ -33,18 +42,17 @@ export default function HeroPage() {
               width={400}
               priority
             />
-          </div>
+          </motion.div>
           <div className="flex items-center gap-9 transition duration-300">
-            <div>
-              <Link href="/explorer">
-                <button
-                  className="bg-circle hover:bg-circle1 transition-colors duration-200 rounded-md w-24 text-background py-3 font-bold"
-                  type="submit"
-                >
-                  Start
-                </button>
-              </Link>
-            </div>
+            <Link href="/explorer">
+              <Image
+                src="/Start.png"
+                alt="start"
+                height={125}
+                width={125}
+                className="hover:bg-circle rounded-full transition duration-700"
+              />
+            </Link>
           </div>
         </div>
       )}

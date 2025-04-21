@@ -7,6 +7,16 @@ interface GenerationChoicesProps {
 }
 
 export default function GenerationChoices({ changeGen, gen }: GenerationChoicesProps) {
+  // Create a handler function that both changes generation and scrolls to top
+  const handleGenChange = (generation: string) => {
+    changeGen(generation);
+    // Scroll to the top of the page smoothly
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <div className="flex justify-center gap-7 text-2xl mb-3">
@@ -18,7 +28,7 @@ export default function GenerationChoices({ changeGen, gen }: GenerationChoicesP
             alt="First Gen"
             height={100}
             width={100}
-            onClick={() => changeGen("first")}
+            onClick={() => handleGenChange("first")}
           />
         </div>
         <div
@@ -29,7 +39,7 @@ export default function GenerationChoices({ changeGen, gen }: GenerationChoicesP
             alt="Second Gen"
             height={100}
             width={100}
-            onClick={() => changeGen("second")}
+            onClick={() => handleGenChange("second")}
           />
         </div>
         <div
@@ -40,7 +50,7 @@ export default function GenerationChoices({ changeGen, gen }: GenerationChoicesP
             alt="Third Gen"
             height={100}
             width={100}
-            onClick={() => changeGen("third")}
+            onClick={() => handleGenChange("third")}
           />
         </div>
       </div>

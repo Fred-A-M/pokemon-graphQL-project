@@ -9,6 +9,7 @@ interface PokemonListProps {
   addToMyList: (pokemon: Pokemon) => void;
   removeFromList: (pokemon: Pokemon) => void;
   listCheck: (pokemon: Pokemon) => boolean;
+  loading: boolean;
 }
 
 export default function PokemonList({
@@ -19,6 +20,7 @@ export default function PokemonList({
   addToMyList,
   removeFromList,
   listCheck,
+  loading,
 }: PokemonListProps) {
   const key = gen === "first" ? "gen1" : gen === "second" ? "gen2" : "gen3";
   const myListOrData = gen === "list" ? myList : data[key];
@@ -55,6 +57,7 @@ export default function PokemonList({
                 addToMyList={addToMyList}
                 removeFromList={removeFromList}
                 listCheck={listCheck}
+                loading={loading}
               />
             ))
           : myListOrData.map((pokemon) => (
@@ -65,6 +68,7 @@ export default function PokemonList({
                 addToMyList={addToMyList}
                 removeFromList={removeFromList}
                 listCheck={listCheck}
+                loading={loading}
               />
             ))}
       </div>

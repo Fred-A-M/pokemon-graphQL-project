@@ -13,6 +13,7 @@ interface GridItemProps {
   addToMyList: (pokemon: Pokemon) => void;
   removeFromList: (pokemon: Pokemon) => void;
   listCheck: (pokemon: Pokemon) => boolean;
+  loading: boolean;
 }
 
 export default function GridItem({
@@ -21,6 +22,7 @@ export default function GridItem({
   addToMyList,
   removeFromList,
   listCheck,
+  loading,
 }: GridItemProps) {
   const [showInfo, setShowInfo] = useState<boolean>(false);
   const [rotated, setRotated] = useState<boolean>(false);
@@ -91,12 +93,18 @@ export default function GridItem({
               onMouseEnter={handleMouseEnter}
               className="focus:outline-none hover:cursor-pointer"
             >
-              <Image
-                src={pokemonImage + pokemon.id + ".png"}
-                alt={pokemon.name}
-                height={150}
-                width={150}
-              />
+              {loading ? (
+                <div className="flex justify-center items-center h-full w-full">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-circle" />
+                </div>
+              ) : (
+                <Image
+                  src={pokemonImage + pokemon.id + ".png"}
+                  alt={pokemon.name}
+                  height={150}
+                  width={150}
+                />
+              )}
             </button>
           )}
           <div className=" flex justify-between w-full">

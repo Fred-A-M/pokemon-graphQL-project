@@ -81,6 +81,7 @@ export default function ExplorerPage() {
         gen={gen}
         listCheck={listCheck}
         searchTerm={searchTerm}
+        loading={loading}
       />
     </>
   );

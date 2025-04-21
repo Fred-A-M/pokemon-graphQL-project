@@ -27,6 +27,16 @@ export const GET_POKEMON = gql`
           }
         }
       }
+      pokemon_v2_pokemonspeciesflavortexts(
+        where: { language_id: { _eq: 9 } }
+        limit: 1
+        order_by: { version_id: desc }
+      ) {
+        flavor_text
+        pokemon_v2_version {
+          name
+        }
+      }
     }
 
     gen2: pokemon_v2_pokemonspecies(
@@ -48,6 +58,16 @@ export const GET_POKEMON = gql`
           }
         }
       }
+      pokemon_v2_pokemonspeciesflavortexts(
+        where: { language_id: { _eq: 9 } }
+        limit: 1
+        order_by: { version_id: desc }
+      ) {
+        flavor_text
+        pokemon_v2_version {
+          name
+        }
+      }
     }
 
     gen3: pokemon_v2_pokemonspecies(
@@ -67,6 +87,16 @@ export const GET_POKEMON = gql`
           pokemon_v2_stat {
             name
           }
+        }
+      }
+      pokemon_v2_pokemonspeciesflavortexts(
+        where: { language_id: { _eq: 9 } }
+        limit: 1
+        order_by: { version_id: desc }
+      ) {
+        flavor_text
+        pokemon_v2_version {
+          name
         }
       }
     }

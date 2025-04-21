@@ -74,6 +74,18 @@ const PokemonChart = ({ stats }: { stats: PokemonStat[] }) => {
   );
 };
 
+function getBio(pokemon: Pokemon): string {
+  if (
+    pokemon.pokemon_v2_pokemonspeciesflavortexts &&
+    pokemon.pokemon_v2_pokemonspeciesflavortexts.length > 0
+  ) {
+    return pokemon.pokemon_v2_pokemonspeciesflavortexts[0].flavor_text;
+  }
+
+  // Fallback message if no flavor text is available
+  return `${capitalize(pokemon.name)} is a fascinating Pokemon with unique characteristics. It lives in ${pokemon.pokemon_v2_pokemonhabitat.name} habitats and has a distinctive appearance.`;
+}
+
 export default function PokemonModal({
   pokemon,
   onClose,
@@ -153,14 +165,14 @@ export default function PokemonModal({
               className="object-contain"
             />
           </motion.div>
-          <div className="bg-circle1/20 p-5 rounded-lg">
+          <div className="bg-circle2/20 py-5 px-2 sm:px-5 rounded-lg">
             <h3 className="font-bold md:text-2xl text-xl mb-4">Battle Stats</h3>
             <div className="w-full">
               <PokemonChart stats={pokemon.pokemon_v2_pokemons[0].pokemon_v2_pokemonstats} />
             </div>
           </div>
 
-          <div className="bg-circle1/20 p-5 rounded-lg w-full">
+          <div className="bg-circle2/20 py-5 px-2 sm:px-5 rounded-lg w-full">
             <h2 className="font-bold md:text-2xl text-xl mb-4">Info</h2>
 
             <div className="grid grid-cols-2 gap-4 md:text-lg text-md">
@@ -186,13 +198,9 @@ export default function PokemonModal({
             </div>
           </div>
 
-          <div className="bg-circle2/20 p-5 rounded-lg self-end">
-            <h2 className="font-bold md:text-2xl text-xl mb-4">Bio</h2>
-            <p className="mb-2 md:text-lg text-md">
-              {capitalize(pokemon.name)} is a fascinating Pokemon with unique characteristics. It
-              lives in {pokemon.pokemon_v2_pokemonhabitat.name} habitats and has a distinctive
-              appearance.
-            </p>
+          <div className="bg-circle2/20 py-5 px-2 sm:px-5 rounded-lg">
+            <h2 className="font-bold text-2xl mb-4">Bio</h2>
+            <p className="mb-2 text-lg">{getBio(pokemon)}</p>
           </div>
         </div>
       </div>

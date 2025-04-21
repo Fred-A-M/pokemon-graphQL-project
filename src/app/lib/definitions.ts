@@ -4,6 +4,7 @@ export interface Pokemon {
   id: number;
   pokemon_v2_pokemonhabitat: Habitat;
   pokemon_v2_pokemons: PokemonDetails[];
+  pokemon_v2_pokemonspeciesflavortexts: FlavorText[];
 }
 
 // Add these new interfaces
@@ -34,3 +35,10 @@ export interface AllGens {
 
 export const pokemonImage =
   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
+
+export interface FlavorText {
+  flavor_text: string;
+  pokemon_v2_version: {
+    name: string;
+  };
+}
