@@ -22,27 +22,28 @@ export default function HeroPage() {
       ) : (
         // Main content
         <div className="flex flex-col justify-center items-center h-lvh gap-9 bg-nav">
-          <motion.div
-            initial={{ rotateY: 0 }}
-            animate={{ rotateY: 360 }}
-            transition={{
-              duration: 2,
-              delay: 1,
-              ease: "circIn",
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-            style={{ perspective: "1000px" }}
-          >
-            <Image
-              className="drop-bounce"
-              src="/PELogo.png"
-              alt="logo"
-              height={400}
-              width={400}
-              priority
-            />
-          </motion.div>
+          <div style={{ perspective: "1000px" }}>
+            <motion.div
+              initial={{ rotateY: 0 }}
+              animate={{ rotateY: 360 }}
+              transition={{
+                duration: 2,
+                delay: 1,
+                ease: "circIn",
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            >
+              <Image
+                className="drop-bounce"
+                src="/PELogo.png"
+                alt="logo"
+                height={400}
+                width={400}
+                priority
+              />
+            </motion.div>
+          </div>
           <div className="flex items-center gap-9 transition duration-300">
             <Link href="/explorer">
               <Image
